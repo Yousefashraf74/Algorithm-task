@@ -13,22 +13,14 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    int temp[n];
-    int nonZeroCount = 0;
+    int zeroIndex = 0;
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
-            temp[nonZeroCount] = arr[i];
-            nonZeroCount++;
+            int temp = arr[i];
+            arr[i] = arr[zeroIndex];
+            arr[zeroIndex] = temp;
+            zeroIndex++;
         }
-    }
-
-    while (nonZeroCount < n) {
-        temp[nonZeroCount] = 0;
-        nonZeroCount++;
-    }
-
-    for (int i = 0; i < n; i++) {
-        arr[i] = temp[i];
     }
 
     printf("The modified array is: ");
@@ -39,5 +31,6 @@ int main() {
 
     return 0;
 }
+
 
 
